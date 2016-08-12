@@ -16,6 +16,8 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //PUT YOUR CODE HERE           
+            double yourInput = Console.ReadLine();
+
         }
 
         public static double square(double x)
