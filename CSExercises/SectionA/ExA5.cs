@@ -22,9 +22,9 @@ namespace CSExercises
         {
             string inputStr = Console.ReadLine();
             double inputDbl = Convert.ToDouble(inputStr);
-
             //YOUR CODE HERE
-
+            double x = Math.Floor(inputDbl * 100) / 100; //4.555 455.5 455 4.55
+            Console.WriteLine("{0:0.00}", x);
         }
 
     }
