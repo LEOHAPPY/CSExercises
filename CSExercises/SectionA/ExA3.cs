@@ -25,7 +25,7 @@ namespace CSExercises
         public static int square(int x)
         {
             //PUT YOUR CODE HERE
-            x = x * x;
+            x = x * x; //why cannot use a Math Function?
             return x;
         }
     }
