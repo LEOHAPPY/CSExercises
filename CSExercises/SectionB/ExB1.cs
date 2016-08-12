@@ -14,13 +14,21 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
+            // input a number and then convert it to double;
+            // but if I input a character  ? 
+            string A = Console.ReadLine();
+            double B = Convert.ToDouble(A);
+            
+            //call the function and print      
+            Console.WriteLine(SQRT(B));
         }
 
+        //function
         public static double SQRT(double x)
         {
             //YOUR CODE HERE: return the square root of x
-            return 0;
-
+            x = Math.Sqrt(x);
+            return x;
         }
     }
 }
