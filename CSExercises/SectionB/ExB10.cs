@@ -20,13 +20,36 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
+            //remind then convert to double 
+            Console.WriteLine("Please input the lengthe of the first side:");
+            double a = Convert.ToDouble(Console.ReadLine());
 
+            Console.WriteLine("Please input the lengthe of the second side:");
+            double b = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Please input the lengthe of the third side:");
+            double c = Convert.ToDouble(Console.ReadLine());
+            
+            //call the function and display
+            string area = CalculateArea(a, b, c);
+            Console.WriteLine("result: {0}", area);
         }
 
-        public static double CalculateArea(double a, double b, double c)
+        public static string CalculateArea(double a, double b, double c)
         {
             //YOUR CODE HERE
-            return 0;
+            string areaStr;
+            if ((a + b) > c && (a - b) < c)
+            {
+                double s = (a + b + c) / 2;
+                double area = Math.Sqrt(s * (s - a) * (s - b) * (s - c));
+                areaStr = Convert.ToString(area);
+            }
+            else
+            {
+                areaStr = "input error";
+            }
+            return areaStr;
         }
     }
 }

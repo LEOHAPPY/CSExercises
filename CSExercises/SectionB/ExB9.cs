@@ -12,17 +12,24 @@ namespace CSExercises
     //This is harder than the previous problem 
     //and requires your ingenuity
 
-    public class ExB9
+    public class ExB9 //the same as ExB8
     {
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
+            Console.WriteLine("Please input the distance");
+            double basicCharge = Convert.ToDouble(Console.ReadLine());
+
+            //call the function and display formatlly
+            Console.WriteLine("S${0:0.00}", CalculateFare(basicCharge));
         }
 
         public static double CalculateFare(double distance)
         {
             //YOUR CODE HERE
-            return 0;
+            double fare = 2.40 + distance * 0.4;
+            fare = Math.Ceiling(fare * 100) / 100;//same as ExA5
+            return fare;
 
         }
     }

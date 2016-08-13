@@ -19,13 +19,19 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
+            //receive and convert into double type
+            Console.WriteLine("Please input the distance");
+            double basicCharge = Convert.ToDouble(Console.ReadLine());
+
+            //call the function and display formatlly
+            Console.WriteLine("S${0:0.00}", CalculateFare(basicCharge));
         }
 
         public static double CalculateFare(double distance)
         {
             //YOUR CODE HERE
-            return 0;
-
+            double fare = 2.40 + distance * 0.4;
+            return fare;
         }
     }
 }

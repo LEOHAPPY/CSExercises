@@ -19,13 +19,16 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE
-
+            string salaryStr = Console.ReadLine();
+            Console.WriteLine("S${0:0.00}",CalculateIncome(salaryStr)); //currency format: S$0.00
         }
 
-        public static string CalculateIncome(string salaryStr)
+        public static double CalculateIncome(string salaryStr)
         {
             //YOUR CODE HERE
-            return null;
+            double salary = Convert.ToDouble(salaryStr);
+            double totalIncome = salary + 0.1 * salary + 0.03 * salary;
+            return totalIncome;
         }
     }
 }
