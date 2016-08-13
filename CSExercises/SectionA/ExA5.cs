@@ -20,9 +20,12 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
+            //read and convert to double type then save in inputDb1
+            double inputDbl = Convert.ToDouble(Console.ReadLine());
+            /*is the same as the following but more concise and no need a variable to diliver.
             string inputStr = Console.ReadLine();
             double inputDbl = Convert.ToDouble(inputStr);
-            //YOUR CODE HERE
+            */
             double x = Math.Floor(inputDbl * 100) / 100; //4.555 455.5 455 4.55
             Console.WriteLine("{0:0.00}", x);
         }
