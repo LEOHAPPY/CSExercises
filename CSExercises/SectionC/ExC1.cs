@@ -16,6 +16,13 @@ namespace CSExercises
             string gender = Console.ReadLine();
 
             //YOUR CODE HERE
+            //consider someone must input the  lower character of his gender.
+            if ((gender == "M") || (gender == "m"))
+                Console.WriteLine("Good Morning Mr.{0}", name);
+            else if ((gender == "F") || (gender == "f")) 
+                Console.WriteLine("Good Morning Ms.{0}", name);
+            else
+                Console.WriteLine("Good Morning {0}", name);
         }
     }
 }
