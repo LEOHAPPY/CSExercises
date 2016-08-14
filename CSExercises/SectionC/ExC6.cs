@@ -30,18 +30,51 @@ namespace CSExercises
         public static void Main(string[] args)
         {
             //YOUR CODE HERE - get user input, call the function and return the discounted price
+            //remind and and get input
+            Console.WriteLine("How many TV do you want to buy?");
+            int tvQty = Convert.ToInt16(Console.ReadLine());
 
+            Console.WriteLine("How many DVD do you want to buy?");
+            int dvdQty = Convert.ToInt16(Console.ReadLine());
 
+            Console.WriteLine("How many MP3 do you want to buy?");
+            int mp3Qty = Convert.ToInt16(Console.ReadLine());
 
+            //call the function and display
+            Console.WriteLine("The total price of your goods is S${0}", CalculateTotalPrice(tvQty,dvdQty,mp3Qty));
         }
 
         public static double CalculateTotalPrice(int tvQty, int dvdQty, int mp3Qty)
         {
             //YOUR CODE HERE
-            return 0;
+            //const statement 
+            const double tvPrice = 900;
+            const double dvdPrice = 500;
+            const double mp3Price = 700;
 
+            //caculate each price and enforce convert
+            double totalTvPrice = (double) tvPrice * tvQty;
+            double totalDvdPrice = (double)dvdPrice * dvdPrice;
+            double totalMp3Price = (double)mp3Price * mp3Qty;
 
+            double totalDiscountPrice = totalTvPrice + totalDvdPrice;
 
+            //discount variable statement 
+            double discount;
+
+            //conditional discount
+            if (totalDiscountPrice >= 5000 && totalDiscountPrice < 10000)
+                discount = 0.10;
+            else if (totalDiscountPrice >= 10000)
+                discount = 0.15;
+            else
+                discount = 0;
+
+            //calculate totalPrice
+            double totalPrice = totalMp3Price + (1 - discount) * totalDiscountPrice;
+
+            //return
+            return totalPrice;
         }
     }
 }
