@@ -28,7 +28,7 @@ namespace CSExercises
         {
             //YOUR CODE HERE
             double fare = 2.40 + distance * 0.4;
-            fare = Math.Ceiling(fare * 100) / 100;//same as ExA5
+            fare = Math.Ceiling(fare * 10) / 10;//same as ExA5 but this time is the nearest 10 cents
             return fare;
 
         }

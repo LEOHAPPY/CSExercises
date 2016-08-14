@@ -20,14 +20,14 @@ namespace CSExercises
             double basicCharge = Convert.ToDouble(Console.ReadLine());
 
             //call the function and display formatlly
-            Console.WriteLine("S${0:0.00}", CalculateFare(basicCharge));
+            Console.WriteLine("S${0:0.0}", CalculateFare(basicCharge));
         }
 
         public static double CalculateFare(double distance)
         {
             //YOUR CODE HERE
             double fare = 2.40 + distance * 0.4;
-            fare = Math.Ceiling(fare*100)/100;//same as ExA5
+            fare = Math.Ceiling(fare*10)/10;//same as ExA5
             return fare;
         }
     }
