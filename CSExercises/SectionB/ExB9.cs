@@ -31,6 +31,7 @@ namespace CSExercises
             fare = Math.Ceiling(fare * 10) / 10;//same as ExA5 but this time is the nearest 10 cents
             return fare;
 
+
         }
     }
 }
