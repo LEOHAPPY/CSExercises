@@ -22,11 +22,24 @@ namespace CSExercises
             Console.WriteLine();
         }
 
-        public static void Sort(int[] values)
+        public static int[] Sort(int[] values)
         {
             //YOUR CODE HERE
             //Sort the list
 
+            for (int i = 0; i < values.Length-1; i++)
+            {
+                for (int j = i + 1; j < values.Length; j++) 
+                {
+                    if (values[i] < values[j]) 
+                    {
+                        int temp = values[i];
+                        values[j] = values[i];
+                        values[j] = temp;
+                    }
+                }
+            }
+            return values;
         }
 
     }

@@ -32,11 +32,22 @@ namespace CSExercises
         public static bool IsPalindrome(string phrase)
         {
             //YOUR CODE HERE
-            return false;
+            bool result = false;
+            int count=1;
+            for (int i = 0; i < phrase.Length/2; i++) 
+            {
+                if (phrase[i] == phrase[phrase.Length - 1 - i])
+                {
+                    count ++;
+                }
+            }
+            
+            if (count == (phrase.Length+1)/2)
+            {
+                result = true;
+            }
 
-
-
-
+            return result;
         }
     }
 }

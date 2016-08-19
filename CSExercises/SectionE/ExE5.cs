@@ -6,15 +6,33 @@ namespace CSExercises
     //Modify the Prime Number C# program to print out all 
     //the prime numbers from 5 to 10000.
 
-
     public class ExE5
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            //YOUR CODE HERE
-            //Hint: you can call ExE3.IsPrime method (from previous exercise) 
-            //to check whether a number is a prime or not.
-
+            int[] count = new int[1000];
+            //calculate how many factors a figure has
+            for (int i = 1; i <= 1000; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        count[i - 1]++;
+                    }
+                }
+            }
+            // output the Prime who bigger than 4 
+            for (int m = 1; m <= 1000; m++)
+            {
+                if (count[m - 1] == 2)
+                {
+                    if (m >= 5)
+                    {
+                        Console.WriteLine(m);
+                    }
+                }
+            }
 
         }
     }

@@ -26,7 +26,7 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
-            int [,] marks = new int[,]
+            int[,] table = new int[,]
             {
                 {56,84,68,29},
                 {94,73,31,96},
@@ -42,64 +42,70 @@ namespace CSExercises
                 {16,93,46,72}
             };
 
-            int[] total = CalculateTotalMarks(marks);
-            double[] avg = CalculateStudentAverage(marks);
-            double[] avgPerSubject = CalculateSubjectAverage(marks);
+            int[] sumMarks = new int[table.GetLength(0)];
+            double[] avgMarks = new double[table.GetLength(0)];
+            double[] variance = new double[table.GetLength(0)];
+            double avgOverAll = 0;
+            sumMarksMd(table, ref sumMarks, ref avgMarks,ref avgOverAll,ref variance);
+
+            //Print
+            Console.WriteLine("NO\tsumMarks\tavgMarks\tvariance");
+            Print(table, sumMarks, avgMarks, variance);
+            Console.WriteLine("The overall average of the all the student is {0:0.00}", avgOverAll);
 
 
-            for (int row = 0; row < 12; row++)
+
+        }
+        public static void sumMarksMd(int[,] table,ref int[] sumMarks, ref double[] avgMarks,ref double avgOverAll,ref double[] variance) 
+        {
+            
+            //sumMark for each student
+            for (int i = 0; i < table.GetLength(0); i++)
             {
-                Console.WriteLine("Total marks for student {0}: {1}",row,total[row]);
-                Console.WriteLine("Avg marks for student {0}: {1}", row, avg[row]);
+                for (int j = 0; j < table.GetLength(1); j++)
+                {
+                    sumMarks[i] = sumMarks[i] + table[i, j];
+                }
             }
 
-            for (int col = 0; col < 4; col++)
+            //avg
+            for (int i = 0; i < table.GetLength(0); i++) 
             {
-                Console.WriteLine("Avg marks for subject {0}: {1}", col, avgPerSubject[col]);
+                avgMarks[i] = sumMarks[i] / table.GetLength(1);
+            }
+
+            //overall avg
+
+            double avgMarksOverAll = 0;
+            for (int i = 0; i < avgMarks.Length; i++)
+            {
+                avgMarksOverAll = avgMarksOverAll + avgMarks[i];
+            }
+            avgOverAll = avgMarksOverAll / avgMarks.Length;
+
+            //SD
+            for (int i = 0; i < table.GetLength(0); i++)
+            {
+                for (int j = 0; j < table.GetLength(1); j++)
+                {
+                    variance[i] = Math.Pow((table[i, j] - avgMarks[j]), 2) / table.GetLength(1);
+                }
             }
 
         }
 
-        public static int[] CalculateTotalMarks(int[,] marks)
+
+        public static void Print(int[,] table,int[] sumMarks,double[] avgMarks,double[] variance)
         {
-
-            int[] total = new int[12];
-
-            //YOUR CODE HERE
-            return total;
-
-
-        }
-
-        public static double[] CalculateStudentAverage(int[,] marks)
-        {
-            double[] avg = new double[12];
-
-            //YOUR CODE HERE
-            return avg;
-
-
-
-        }
-
-        public static double[] CalculateSubjectAverage(int[,] marks)
-        {
-            double[] avgPerSubject = new double[4];
-
-            //YOUR CODE HERE
-            return avgPerSubject;
-
-
-
-
-
-        }
-
-        public static double[] CalculateVariance(int[,] marks)
-        {
-            double[] variance = new double[12];
-            //YOUR CODE HERE - bonus questions
-            return variance;
+            for(int i = 0; i<table.GetLength(0);i++)
+            {
+                Console.Write("{0}\t",i+1);
+                Console.Write(sumMarks[i] + "\t");
+                Console.Write("\t"+avgMarks[i] + "\t");
+                Console.WriteLine("\t"+variance[i] + "\t");
+            }
+            Console.WriteLine();
+                
         }
     }
 }

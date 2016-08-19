@@ -22,54 +22,61 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
-            int[] sales = new int[12];
-            for (int n = 0; n < 12; n++)
-            {
-                Console.Write("Enter sales for month {0}: " , n);
-                sales[n] = Convert.ToInt32(Console.ReadLine());
-            }
+            Console.WriteLine("Please input all the sales of months once using tab as a gap");
+            Console.WriteLine("Jan.\tFab.\tMar.\tApr.\tMa.\tJun.\tJul.\tAug.\tSep.\tOct.\tNev.\tDec");
+            string inputOnce = Console.ReadLine();
 
-            int max = 0;
-            int min = 0;
-            double avg = 0;
+            // call SectionF(namespace) InputOnceTime(class) SplitInputInt(method) 
+            // splitInput to Int Array to generate sales.
+            int[] sales = SectionF.InputOnceTime.SplitInputInt(inputOnce);
 
-            CalculateMinMaxAvg(sales, ref min, ref max, ref avg);
+            int min = CalculateMinMonth(ref sales);
+            int max = CalculateMaxMonth(ref sales);
+            double avg = CalculateAvgSales(ref sales);
 
             Console.WriteLine("Maximum Sales: " + max);
             Console.WriteLine("Minimum Sales: " + min);
             Console.WriteLine("Average Sales: " + avg);
         }
 
-        public static void CalculateMinMaxAvg(int[] sales, ref int minMonth, ref int maxMonth, ref double avg)
+        public static int CalculateMinMonth(ref int[] sales)
         {
             //YOUR CODE HERE
-            //Assign the result to minMonth, maxMonth and avg variable/parameter accordingly
+            int minMonth = sales[0];
 
+            for (int i=1;i<sales.Length;i++)
+            {
+                minMonth = Math.Min(minMonth,sales[i]);
+            }
+            return minMonth;
 
         }
 
-        public static int CalculateMinMonth(int[] sales)
+        public static int CalculateMaxMonth(ref int[] sales)
         {
             //YOUR CODE HERE
-            return 0;
-
+            int maxMonth = sales[0];
+            for (int i = 1; i < sales.Length; i++)
+            {
+                maxMonth = Math.Max(maxMonth, sales[i]);
+            }
+            return maxMonth;
         }
 
-        public static int CalculateMaxMonth(int[] sales)
+        public static double CalculateAvgSales(ref int[] sales)
         {
             //YOUR CODE HERE
-            return 0;
+            //sum
+            int sumSales = 0;
+            for (int i = 0; i < sales.Length; i++)
+            {
+                sumSales = sumSales + sales[i];
+            }
 
-
-
+            double avgSales = sumSales / sales.Length;
+            return avgSales;
         }
 
-        public static double CalculateAvgSales(int[] sales)
-        {
-            //YOUR CODE HERE
-            return 0;
-
-        }
 
 
     }

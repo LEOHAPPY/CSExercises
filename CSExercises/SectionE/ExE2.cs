@@ -6,7 +6,7 @@ namespace CSExercises
     //of its inverse, square root and square as below:
 
     //NO            INVERSE         SQUARE ROOT    SQUARE
-    //------------------------------------------------------
+    //------------------------------------------------------------
     //1.0             1.0             1.0             1.0
     //2.0             0.5             1.414           4.0
     //3.0             0.333           1.732           9.0
@@ -22,7 +22,15 @@ namespace CSExercises
     {
         public static void Main(string[] args)
         {
-            //YOUR CODE HERE
+            Console.WriteLine("NO\tINVERSE\tSQUARE ROOT\tSQUARE");
+            Console.WriteLine("--------------------------------------");
+
+            for (int i = 1; i<= 10; i++)
+            {
+                double iDou = i;
+                Console.WriteLine("{0:0.0}\t{1:0.0##}\t{2:0.0##}\t\t{3:0.0}", 
+                                  iDou, 1 / iDou, Math.Sqrt(iDou), iDou * iDou);
+            }
         }
     }
 }

@@ -26,24 +26,48 @@ namespace CSExercises
 
             int fact2 = CalculateFactorialDec(n);
             Console.WriteLine(fact2);
+
+            int fact3 = RecurciveMethod(n);
+            Console.WriteLine(fact3);
         }
 
         public static int CalculateFactorialInc(int n)
         {
             //YOUR CODE HERE
-            return 0;
-
+            int i = 1;
+            int factorial = n;
+            for (i = 1; i < n; i++)
+            {
+                factorial = factorial * i; 
+            }
+            return factorial;
 
         }
 
         public static int CalculateFactorialDec(int n)
         {
             //YOUR CODE HERE
-            return 0;
-
-
+            int i = 1;
+            int factorial = n;
+            for (i = n-1; i >= 1; i--)
+            {
+                factorial = factorial * i;
+            }
+            return factorial;
         }
 
-
+        public static int RecurciveMethod(int n)
+        {
+            int result;
+            if (n == 1)
+            {
+                result = 1;
+            }
+            else
+            {
+                result = n * RecurciveMethod(n - 1); //recursive recall
+            }
+            return result;
+        }
     }
 }
